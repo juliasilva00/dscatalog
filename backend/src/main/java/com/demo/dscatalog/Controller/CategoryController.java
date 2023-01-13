@@ -1,6 +1,7 @@
 package com.demo.dscatalog.Controller;
 
 
+import com.demo.dscatalog.DTO.CategoryDTO;
 import com.demo.dscatalog.Model.Category;
 import com.demo.dscatalog.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +24,13 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping
-    public ResponseEntity<List<Category>> getMovie(){
-        List<Category> list = categoryService.findAllBooks();
+    public ResponseEntity<List<CategoryDTO>> getCategory(){
+        List<CategoryDTO> list = categoryService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
-    @PostMapping
-    public ResponseEntity<Category> createCategory(@RequestBody Category category){
-        return new ResponseEntity(categoryService.createBook(category), HttpStatus.CREATED);
-    }
+//    @PostMapping
+//    public ResponseEntity<Category> createCategory(@RequestBody Category category){
+//        return new ResponseEntity(categoryService.createBook(category), HttpStatus.CREATED);
+//    }
 }
